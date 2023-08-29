@@ -1,7 +1,7 @@
-﻿using WorkFlow.Models;
+﻿using testingProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WorkFlow.Controllers
+namespace testingProject.Controllers
 {
     [Produces("application/json")]
     [Route("[controller]")]

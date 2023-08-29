@@ -1,7 +1,7 @@
 ﻿using System.Dynamic;
 using System.Text;
 
-namespace WorkFlow.Models
+namespace testingProject.Models
 {
     public class APIBridge : IDisposable
     {
@@ -86,7 +86,7 @@ namespace WorkFlow.Models
 
                     #endregion
 
-                     #region Note APIS ENDPOINTS
+                   #region Note APIS ENDPOINTS
                     new APIMapping("getinvoice", "Note/GetInvoiceInfo", "GET"),
                     new APIMapping("getnote", "Note/Get", "GET"),
                     new APIMapping("savenote", "Note/Save", "POST"),
@@ -98,23 +98,20 @@ namespace WorkFlow.Models
                     new APIMapping("getdistributiontype", "setup/Note/GetDistributionType", "GET"),
                     new APIMapping("getcustomerinfo", "setup/Note/GetCustomerInfo", "GET"),
                     new APIMapping("notetocls", "Note/NoteToCls", "POST"),
-                    
-
-                   
-                    #endregion
+                   #endregion
 
                    #region User APIS ENDPOINTS
                    new APIMapping("getuserdetail", "User/Get", "GET"),
                    new APIMapping("adduser", "user/createuser", "POST"),
                    new APIMapping("updateuser", "user/updateuser", "POST"),
-                  new APIMapping("getworkflowbyuser", "FormGroup/GETUserWorkFlow", "GET"),
+                   new APIMapping("getworkflowbyuser", "FormGroup/GETUserWorkFlow", "GET"),
                    #endregion
 
                    #region MyForm APIS ENDPOINTS
                    new APIMapping("getactiveforms", "FormGroup/ActiveForms", "GET"),
                    new APIMapping("getsentforms", "FormGroup/SentForms", "GET"),
                    new APIMapping("getcompletedforms", "FormGroup/CompletedForms", "GET"),
-                    #endregion
+                   #endregion
 
                    #region Recipient APIS ENDPOINTS
                    new APIMapping("gethistory", "Recipient/GetHisotry", "GET"),
@@ -124,8 +121,6 @@ namespace WorkFlow.Models
                    new APIMapping("changeapproval", "Recipient/GetFormForChangeApproval", "GET"),
                    new APIMapping("updateapproval", "Recipient/UpdateApproval", "POST"),
                    new APIMapping("getchangeapproval", "Recipient/GetChangeApprovalReceipt", "GET"),
-
-                   
                    #endregion
 
                    #region POST APIS ENDPOINTS
@@ -135,13 +130,13 @@ namespace WorkFlow.Models
                     new APIMapping("updateworkflow", "workflow/updateworkflow", "POST"),
                     #endregion
 
-                    #region CN Swap APIs
+                   #region CN Swap APIs
                     new APIMapping("getCNdetails","SwappingCN/FetchDetailByCN","GET"),
                     new APIMapping("getCNSwapDetails","SwappingCN/Get","GET"),
                     new APIMapping("getCNSwapRecipient","Recipient/GetSwapCNRecipients","GET"),
                     new APIMapping("cnSwapSave","SwappingCN/Save","POST"),
                     new APIMapping("cnSubmit","SwappingCN/Submit","POST"),
-                    #endregion
+                   #endregion
             };
 
             //string baseUrl = "https://devconnect.tcscourier.com/gworkflow/api/";
@@ -269,7 +264,7 @@ namespace WorkFlow.Models
                 return new APIBridge
                 {
                     isSuccess = false,
-                    responseData = $"{ex.Message}. {ex.InnerException.InnerException.Message}"
+                    responseData = $"{ex.Message}. {ex.InnerException?.InnerException?.Message}"
                 };
             }
 

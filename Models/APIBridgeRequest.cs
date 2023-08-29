@@ -1,4 +1,4 @@
-﻿namespace WorkFlow.Models
+﻿namespace testingProject.Models
 {
     public class APIBridgeRequest
     {

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBulider.group({
       email: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      authType: ['1'],
+      authType: ['2'],
     });
   }
   submit() {
