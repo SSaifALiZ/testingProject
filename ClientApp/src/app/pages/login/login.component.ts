@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BridgeModel } from 'src/app/BridgeModel';
 import { BridgeApiService } from 'src/app/services/bridgeapi.service';
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBulider: FormBuilder,
-    private bridgeApiService: BridgeApiService
+    private bridgeApiService: BridgeApiService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.loginForm = this.formBulider.group({
@@ -38,9 +40,12 @@ export class LoginComponent implements OnInit {
         '&authType=' +
         this?.loginForm?.value?.authType;
       this.bm.data = [];
-      this?.bridgeApiService
-        ?.authenticate(this?.bm)
-        ?.subscribe((response) => console.log('response:', response));
+      this?.bridgeApiService?.authenticate(this?.bm)?.subscribe((response) => {
+        // console.log('response:', response);
+        if (response?.responseData?.code === '200') {
+          this?.router?.navigateByUrl('layout');
+        } else alert(response?.responseData?.code);
+      });
     }
   }
 }

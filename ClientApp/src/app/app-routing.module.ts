@@ -6,7 +6,8 @@ import { LayoutComponent } from './pages/layout/layout/layout.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'layout', component: LayoutComponent },
+  // { path: 'layout', component: LayoutComponent },
+  { path: '', component: LayoutComponent, children: [] },
 ];
 
 @NgModule({
